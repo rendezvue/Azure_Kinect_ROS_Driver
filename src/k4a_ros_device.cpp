@@ -695,6 +695,7 @@ k4a_result_t K4AROSDevice::fillColorPointCloud(const k4a::image& pointcloud_imag
   // Restore actual dimensions as pcd_modifier.resize(n) sets the cloud size to n x 1
   point_cloud->height = pointcloud_image.get_height_pixels();
   point_cloud->width = pointcloud_image.get_width_pixels();
+  point_cloud->row_step = pointcloud_image.get_width_pixels() * point_cloud->point_step;
 
   const int16_t* point_cloud_buffer = reinterpret_cast<const int16_t*>(pointcloud_image.get_buffer());
   const uint8_t* color_buffer = color_image.get_buffer();
@@ -747,6 +748,7 @@ k4a_result_t K4AROSDevice::fillPointCloud(const k4a::image& pointcloud_image, se
   // Restore actual dimensions as pcd_modifier.resize(n) sets the cloud size to n x 1
   point_cloud->height = pointcloud_image.get_height_pixels();
   point_cloud->width = pointcloud_image.get_width_pixels();
+  point_cloud->row_step = pointcloud_image.get_width_pixels() * point_cloud->point_step;
 
   const int16_t* point_cloud_buffer = reinterpret_cast<const int16_t*>(pointcloud_image.get_buffer());
 
