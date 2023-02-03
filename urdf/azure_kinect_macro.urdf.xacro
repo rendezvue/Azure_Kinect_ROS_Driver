@@ -112,6 +112,7 @@
           <plugin filename="libgazebo_ros_openni_kinect.so" name="${prefix}azure_camera_controller">
             <alwaysOn>true</alwaysOn>
             <updateRate>15</updateRate>
+            <cameraName>${prefix}azure_gazebo</cameraName>
             <imageTopicName>rgb/image_raw</imageTopicName>
             <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
             <depthImageTopicName>depth/image_raw</depthImageTopicName>
